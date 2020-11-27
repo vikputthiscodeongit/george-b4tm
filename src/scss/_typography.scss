@@ -1,0 +1,19 @@
+@font-face {
+    src: local("Cenobyte"),
+        url("../fonts/subset-Cenobyte.woff2") format("woff2"),
+        url("../fonts/subset-Cenobyte.woff") format("woff");
+    font-family: "Cenobyte";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    src: local("Code Bold"), local("Code-Bold"),
+        url("../fonts/subset-Code-Bold.woff2") format("woff2"),
+        url("../fonts/subset-Code-Bold.woff") format("woff");
+    font-family: "Code";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+}

@@ -1,0 +1,735 @@
+// SASS rem
+@import "../../node_modules/sass-rem/rem";
+$rem-baseline: 16px;
+
+// Bootstrap - Functions, variables and functions
+// @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Variables
+@import "../../node_modules/bootstrap/scss/variables";
+@import "variables";
+@import "bootstrap-variables";
+
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Bootstrap - Components
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+// @import "../../node_modules/bootstrap/scss/grid";
+// @import "../../node_modules/bootstrap/scss/tables";
+// @import "../../node_modules/bootstrap/scss/forms";
+// @import "../../node_modules/bootstrap/scss/buttons";
+// @import "../../node_modules/bootstrap/scss/transitions";
+// @import "../../node_modules/bootstrap/scss/dropdown";
+// @import "../../node_modules/bootstrap/scss/button-group";
+// @import "../../node_modules/bootstrap/scss/input-group";
+// @import "../../node_modules/bootstrap/scss/custom-forms";
+// @import "../../node_modules/bootstrap/scss/nav";
+// @import "../../node_modules/bootstrap/scss/navbar";
+// @import "../../node_modules/bootstrap/scss/card";
+// @import "../../node_modules/bootstrap/scss/breadcrumb";
+// @import "../../node_modules/bootstrap/scss/pagination";
+// @import "../../node_modules/bootstrap/scss/badge";
+// @import "../../node_modules/bootstrap/scss/jumbotron";
+// @import "../../node_modules/bootstrap/scss/alert";
+// @import "../../node_modules/bootstrap/scss/progress";
+// @import "../../node_modules/bootstrap/scss/media";
+// @import "../../node_modules/bootstrap/scss/list-group";
+// @import "../../node_modules/bootstrap/scss/close";
+// @import "../../node_modules/bootstrap/scss/toasts";
+// @import "../../node_modules/bootstrap/scss/modal";
+// @import "../../node_modules/bootstrap/scss/tooltip";
+// @import "../../node_modules/bootstrap/scss/popover";
+// @import "../../node_modules/bootstrap/scss/carousel";
+// @import "../../node_modules/bootstrap/scss/spinners";
+// @import "../../node_modules/bootstrap/scss/print";
+
+// Bootstrap - Utilities
+// @import "../../node_modules/bootstrap/scss/utilities/align";
+// @import "../../node_modules/bootstrap/scss/utilities/background";
+// @import "../../node_modules/bootstrap/scss/utilities/borders";
+// @import "../../node_modules/bootstrap/scss/utilities/clearfix";
+// @import "../../node_modules/bootstrap/scss/utilities/display";
+// @import "../../node_modules/bootstrap/scss/utilities/embed";
+// @import "../../node_modules/bootstrap/scss/utilities/flex";
+// @import "../../node_modules/bootstrap/scss/utilities/float";
+// @import "../../node_modules/bootstrap/scss/utilities/overflow";
+// @import "../../node_modules/bootstrap/scss/utilities/position";
+@import "../../node_modules/bootstrap/scss/utilities/screenreaders";
+// @import "../../node_modules/bootstrap/scss/utilities/shadows";
+// @import "../../node_modules/bootstrap/scss/utilities/sizing";
+// @import "../../node_modules/bootstrap/scss/utilities/stretched-link";
+// @import "../../node_modules/bootstrap/scss/utilities/spacing";
+// @import "../../node_modules/bootstrap/scss/utilities/text";
+// @import "../../node_modules/bootstrap/scss/utilities/visibility";
+
+// Other modules
+//
+
+// Other imports below
+@import "mixins/site-defaults";
+@import "mixins/site-rwd";
+@import "mixins/site-utilities";
+@import "mixins/site-visuals";
+@import "mixins/browserhacks";
+@import "typography";
+@import "utilities";
+
+// Default elements
+.html {
+	&--no-overflow {
+		overflow: hidden;
+	}
+}
+
+body {
+	@include body-defaults;
+	overflow-y: hidden;
+	text-transform: uppercase;
+	background-color: $black;
+
+	@supports (display: grid) {
+		@media (min-width: 320px) and (min-height: 480px) {
+			overflow-y: auto;
+		}
+	}
+}
+
+p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	border: none;
+}
+
+// Often used custom objects
+.media {
+	&--video {
+		width: 100%;
+		height: 0;
+		@include aspect-ratio;
+	}
+
+	&--image {
+		position: relative;
+		height: 100%;
+
+		img {
+			max-height: 100%;
+		}
+
+		.entry .section-grid__row:not(.section-grid__row--focus) &,
+		.section--landing .section-grid__row & {
+			// This media is 1.2x the size of .section-grid__row--focus media
+			max-width: rem(264px);
+
+			@include respond-above(xs, md) {
+				max-width: rem(336px);
+			}
+
+			@include respond-above(sm, lg) {
+				max-width: rem(384px);
+			}
+
+			@include respond-above(md, xl) {
+				max-width: rem(460px);
+			}
+		}
+
+		.entry .section-grid__row:not(.section-grid__row--focus) & {
+			@include respond-above(xxxl, xxxl) {
+				max-width: rem(552px);
+			}
+		}
+
+		.section--landing .section-grid__row & {
+			@include respond-above(lg, xxl) {
+				max-width: rem(552px);
+			}
+
+			@include respond-above(xxxl, xxxl) {
+				max-width: rem(614px);
+			}
+
+			@media (min-width: 2048px) and (min-height: 1152px) {
+				max-width: rem(672px);
+			}
+		}
+
+		.section--landing .section-grid__row--focus &,
+		.section--tracks-stream-dl .section-grid__row--focus & {
+			max-width: rem(220px);
+
+			@include respond-above(xs, md) {
+				max-width: rem(280px);
+			}
+
+			@include respond-above(sm, lg) {
+				max-width: rem(320px);
+			}
+
+			@include respond-above(md, xl) {
+				max-width: rem(384px);
+			}
+
+			@include respond-above(lg, xxl) {
+				max-width: rem(448px);
+			}
+
+			@include respond-above(xxxl, xxxl) {
+				max-width: rem(512px);
+			}
+
+			@media (min-width: 2048px) and (min-height: 1152px) {
+				max-width: rem(560px);
+			}
+		}
+
+		.section--landing .section-grid__row--focus & {
+			margin-top: rem(20px);
+			margin-bottom: rem(16px);
+
+			@include respond-above(sm, lg) {
+				margin-top: rem(32px);
+				margin-bottom: rem(20px);
+			}
+		}
+	}
+}
+
+.text {
+	flex-basis: 100%;
+
+	&--center {
+		text-align: center;
+	}
+
+	.entry .section-grid__row:not(.section-grid__row--focus) & {
+		margin-top: rem(4px);
+		font-size: rem(14px);
+		color: $bordeaux;
+
+		@include respond-above(sm, lg) {
+			font-size: rem(16px);
+		}
+
+		@include respond-above(lg, xxl) {
+			font-size: rem(18px);
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			font-size: rem(20px);
+		}
+
+		@media (min-width: 2048px) and (min-height: 1152px) {
+			font-size: rem(22px);
+		}
+	}
+
+	.section--landing .section-grid__row & {
+		letter-spacing: rem(5px);
+		font-size: rem(12px);
+		color: #CCC;
+
+		@include respond-above(sm, lg) {
+			font-size: rem(14px);
+		}
+
+		@include respond-above(lg, xxl) {
+			font-size: rem(16px);
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			font-size: rem(18px);
+		}
+
+		@media (min-width: 2048px) and (min-height: 1152px) {
+			font-size: rem(20px);
+		}
+	}
+}
+
+.button {
+	&-wrap {
+		position: relative;
+		margin-top: rem(8px);
+
+		@include respond-above(md, lg) {
+			margin-top: rem(12px);
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			margin-top: rem(16px);
+		}
+
+		.background {
+			position: absolute;
+			top: rem(-4px);
+			bottom: rem(-4px);
+			left: rem(-8px);
+			right: rem(-8px);
+			z-index: -1;
+			background-color: $black;
+			opacity: 0.5;
+		}
+	}
+
+	.entry .section-grid__row:not(.section-grid__row--focus) & {
+		line-height: 1;
+		font-family: "Cenobyte", Arial, sans-serif;
+		font-size: rem(28px);
+		color: $white;
+
+		@include respond-above(sm, lg) {
+			font-size: rem(32px);
+		}
+
+		@include respond-above(md, lg) {
+			font-size: rem(36px);
+		}
+
+		@include respond-above(lg, xxl) {
+			font-size: rem(40px);
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			font-size: rem(46px);
+		}
+
+		@media (min-width: 2048px) and (min-height: 1152px) {
+			font-size: rem(50px);
+		}
+	}
+
+	&--image {
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	&--stream-download {
+		$ratio: 411 / 192;
+
+		width: rem(160px);
+		height: rem(160px) / $ratio;
+		background-image: url("../images/compiled/button_stream-download.png");
+
+		@include respond-above(sm, lg) {
+			width: rem(192px);
+			height: rem(192px) / $ratio;
+		}
+
+		@include respond-above(lg, xxl) {
+			width: rem(224px);
+			height: rem(224px) / $ratio;
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			width: rem(256px);
+			height: rem(256px) / $ratio;
+		}
+
+		&:hover {
+			background-image: url("../images/compiled/button_stream-download_hover.png")
+		}
+	}
+}
+
+// Overlays
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: rem(16px);
+	background-color: $black;
+
+	&--ass-browser {
+		z-index: 11;
+
+		@supports (display: grid) {
+			display: none;
+		}
+
+		.downloads {
+			margin-top: rem(64px);
+
+			a {
+				margin-bottom: rem(8px);
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&--tiny-viewport {
+		z-index: 10;
+
+		@media (min-width: 320px) and (min-height: 480px) {
+			display: none;
+		}
+	}
+}
+
+// Navigational elements
+.footer {
+	display: none;
+	padding: 0 rem(16px) rem(16px);
+	text-align: center;
+
+	@supports (display: grid) {
+		display: block;
+	}
+
+	@include respond-above(sm, lg) {
+		padding-bottom: rem(32px);
+	}
+
+	&__text {
+		color: $bordeaux;
+
+		> * {
+			font-size: rem(14px);
+
+			@include respond-above(sm, lg) {
+				font-size: rem(16px);
+			}
+
+			@include respond-above(lg, xxl) {
+				font-size: rem(18px);
+			}
+
+			@include respond-above(xxxl, xxxl) {
+				font-size: rem(20px);
+			}
+
+			@media (min-width: 2048px) and (min-height: 1152px) {
+				font-size: rem(22px);
+			}
+		}
+
+		h1 {
+			display: inline;
+		}
+	}
+}
+
+// Sections
+.section {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+
+	@supports (display: grid) {
+		display: flex;
+	}
+
+	.site & {
+		margin: 0 auto 50vh;
+		padding: rem(16px);
+
+		@include respond-above(sm, lg) {
+			padding-top: rem(32px);
+			padding-bottom: rem(32px);
+		}
+	}
+
+	&--fill-viewport {
+		max-height: 100vh;
+		overflow-y: hidden;
+	}
+
+	&--video {
+		min-height: auto;
+		padding: 0;
+
+		@include respond-above(md) {
+			width: 80%;
+		}
+
+		@include respond-above(lg) {
+			width: 70%;
+
+			@include respond-above(0, lg) {
+				width: 80%;
+			}
+		}
+
+		@include respond-above(xl) {
+			width: 60%;
+
+			@include respond-above(0, lg) {
+				width: 70%;
+			}
+		}
+
+		@include respond-above(xxl) {
+			width: 50%;
+
+			@include respond-above(0, lg) {
+				width: 60%;
+			}
+		}
+
+		@include respond-above(xxxl) {
+			width: 40%;
+
+			@include respond-above(0, lg) {
+				width: 60%;
+			}
+		}
+
+		@media (min-width: 2048px) {
+			width: 30%;
+
+			@include respond-above(0, lg) {
+				width: 50%;
+			}
+		}
+	}
+}
+
+.booklet {
+	width: 100vw;
+	height: 100vh;
+}
+
+// Grids
+.section-grid {
+	max-height: 100%;
+
+	.entry & {
+		width: 100%;
+	}
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.entry &:not(.section-grid__row--focus) {
+			position: absolute;
+			bottom: rem(32px);
+			left: 50%;
+			transform: translateX(-50%);
+
+			@include respond-above(sm, md) {
+				bottom: rem(40px)
+			}
+
+			@include respond-above(lg, lg) {
+				bottom: rem(48px)
+			}
+		}
+	}
+}
+
+.stream-grid {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: rem(24px) rem(32px);
+	margin-top: rem(40px);
+	margin-bottom: rem(40px);
+	padding-left: 0;
+
+	li {
+		display: block;
+	}
+
+	@include respond-above(sm, lg) {
+		grid-gap: rem(30px) rem(40px);
+		margin-top: rem(48px);
+		margin-bottom: rem(48px);
+	}
+
+	@include respond-above(md, xl) {
+		grid-gap: rem(36px) rem(48px);
+		margin-top: rem(64px);
+		margin-bottom: rem(64px);
+	}
+
+	@include respond-above(lg, xxl) {
+		margin-top: rem(80px);
+		margin-bottom: rem(80px);
+	}
+
+	@include respond-above(xxxl, xxxl) {
+		grid-gap: rem(44px) rem(56px);
+		margin-top: rem(96px);
+		margin-bottom: rem(96px);
+	}
+
+	@media (min-width: 2048px) and (min-height: 1152px) {
+		grid-gap: rem(48px) rem(64px);
+		margin-top: rem(112px);
+		margin-bottom: rem(112px);
+	}
+
+	&__tile {
+		display: block;
+		width: rem(40px);
+		height: rem(40px);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@include respond-above(sm, lg) {
+			width: rem(50px);
+			height: rem(50px);
+		}
+
+		@include respond-above(md, xl) {
+			width: rem(60px);
+			height: rem(60px);
+		}
+
+		@include respond-above(xxxl, xxxl) {
+			width: rem(70px);
+			height: rem(70px);
+		}
+
+		@media (min-width: 2048px) and (min-height: 1152px) {
+			width: rem(80px);
+			height: rem(80px);
+		}
+
+		&--spotify {
+			background-image: url("../images/compiled/streaming-logo_spotify.png");
+		}
+
+		&--apple-music {
+			background-image: url("../images/compiled/streaming-logo_apple-music.svg");
+		}
+
+		&--tidal {
+			background-image: url("../images/compiled/streaming-logo_tidal.svg");
+		}
+
+		&--deezer {
+			background-image: url("../images/compiled/streaming-logo_deezer.svg");
+		}
+
+		&--play-music {
+			background-image: url("../images/compiled/streaming-logo_google-play-music.svg");
+		}
+
+		&--amazon-music {
+			background-image: url("../images/compiled/streaming-logo_amazon-music.png");
+		}
+
+		&--soundcloud {
+			background-image: url("../images/compiled/streaming-logo_soundcloud.svg");
+		}
+
+		&--audiomack {
+			background-image: url("../images/compiled/streaming-logo_audiomack.png");
+		}
+
+		&--youtube {
+			background-image: url("../images/compiled/streaming-logo_youtube.png");
+		}
+	}
+}
+
+.social-grid {
+	display: flex;
+	justify-content: center;
+	margin-bottom: rem(8px);
+	padding-left: 0;
+
+	@include respond-above(sm, lg) {
+		margin-bottom: rem(16px);
+	}
+
+	@media (min-width: 2048px) and (min-height: 1152px) {
+		margin-bottom: rem(24px);
+	}
+
+	li {
+		display: block;
+		flex-shrink: 0;
+		margin-right: rem(8px);
+
+		@include respond-above(md, xl) {
+			margin-right: rem(12px);
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__tile {
+		display: block;
+		width: rem(32px);
+		height: rem(32px);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@include respond-above(sm, lg) {
+			width: rem(40px);
+			height: rem(40px);
+		}
+
+		@media (min-width: 2048px) and (min-height: 1152px) {
+			width: rem(48px);
+			height: rem(48px);
+		}
+
+		&--facebook {
+			background-image: url("../images/compiled/social-icon_facebook_black-round.svg");
+		}
+
+		&--instagram {
+			background-image: url("../images/compiled/social-icon_instagram_black-round.svg");
+		}
+
+		&--twitter {
+			background-image: url("../images/compiled/social-icon_twitter_black-round.svg");
+		}
+	}
+}
+
+// Scroller
+.scroller {
+	height: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+
+	&__child {
+		height: 100%;
+	}
+
+	picture {
+		position: relative;
+		display: block;
+		height: 100%;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			max-width: none;
+			max-height: 100%;
+			object-fit: contain;
+			transform: translateY(-50%);
+		}
+	}
+}

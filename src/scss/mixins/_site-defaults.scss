@@ -1,0 +1,7 @@
+@mixin body-defaults {
+    min-width: $min-body-width;
+    max-width: $max-body-width;
+    margin: 0 auto; // Center <body> when max vw > $max-body-width.
+    // Disable text-size-adjust on all mobile browsers because we only build optimized websites (H). See also: https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust
+    text-size-adjust: 100%;
+}
